@@ -1,12 +1,14 @@
 default: &default
   adapter: mysql2
-  username: todos_admin
-  password: strong_password
-  host: localhost
+  # username: "<%= ENV['DB_USERNAME'] %>"
+  # password: "<%= ENV['DB_PASSWORD'] %>"
+  # host:     "<%= ENV['DB_HOSTNAME'] %>"
+  # port:     "<%= ENV['DB_PORT'] %>"
 
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  port: 3306
-  timeout: 5000
+  username: root
+  password: root
+  host:     database                #Must match database container name
+  port:     3306
 
 development:
   <<: *default
