@@ -1,14 +1,9 @@
 default: &default
   adapter: mysql2
-  # username: "<%= ENV['DB_USERNAME'] %>"
-  # password: "<%= ENV['DB_PASSWORD'] %>"
-  # host:     "<%= ENV['DB_HOSTNAME'] %>"
-  # port:     "<%= ENV['DB_PORT'] %>"
-
-  username: root
-  password: root
-  host:     database                #Must match database container name
-  port:     3306
+  username: "<%= ENV['DB_USERNAME'] || 'root' %>"
+  password: "<%= ENV['DB_PASSWORD'] || 'root' %>"
+  host:     "<%= ENV['DB_HOSTNAME'] || 'database' %>"
+  port:     "<%= ENV['DB_PORT'] || '3306' %>"
 
 development:
   <<: *default
