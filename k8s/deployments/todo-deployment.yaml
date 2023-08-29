@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todo-deployment
+  name: todo
 spec:
   replicas: 3
   selector:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: todo
-          image: omardiaa/todos-rails-app:0.1
+          image: omardiaa/todos-rails-app:1.2
           ports:
             - containerPort: 80
           resources:
@@ -24,6 +24,6 @@ spec:
             requests:
               memory: "128Mi"   # Initial memory request in Mebibytes
               cpu: "250m"       # Initial CPU request (250 milliCPU or 0.25 CPU Core)
-
-
-
+          envFrom:
+          - configMapRef:
+              name: todo
